@@ -1,0 +1,18 @@
+h2{
+    color: rgb(255, 0, 191);
+    /* text-align: center; */
+}
+
+.message-ball {
+    font-size: 20px;
+    line-height: 200px;
+    text-align: center;
+  }
+  .circle {
+    transition-property: width, height, margin-left, margin-top;
+    transition-duration: 2s;
+    position: fixed;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: rgb(238, 15, 219);
+    border-radius: 50%;
+  }
