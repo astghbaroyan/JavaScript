@@ -101,23 +101,23 @@ let rabbit2 = new Rabbit();
 
 //delete Rabbit.prototype.eats;  // undefined
 
-console.log( rabbit2.eats ); // true
+console.log(rabbit2.eats); // true
 //--------------
 
-function ElectroCar(){}
+function ElectroCar() {}
 ElectroCar.prototype = {
-   battery: true,
-   electricMotor: true,
-   fuel: false
+  battery: true,
+  electricMotor: true,
+  fuel: false
 };
 
 let teslaModelS = new ElectroCar();
 
-console.log('teslaModel3.electricMotor',teslaModelS.electricMotor); // true
-console.log('teslaModel3 === ElectroCar',teslaModelS === ElectroCar); // false
+console.log('teslaModel3.electricMotor', teslaModelS.electricMotor); // true
+console.log('teslaModel3 === ElectroCar', teslaModelS === ElectroCar); // false
 
 let teslaModel3 = ElectroCar.prototype.battery;
-console.log('teslaModel3.battery',teslaModel3); // true
+console.log('teslaModel3.battery', teslaModel3); // true
 
 let teslaModelY = teslaModel3.constructor();
 console.log('teslaModelY', teslaModelY); // false
@@ -127,22 +127,22 @@ function f() {
   console.log("Hello!");
 };
 
-Function.prototype.defer = function(ms){
+Function.prototype.defer = function (ms) {
   setTimeout(f, ms);
-    }
+}
 
 f.defer(1000);
 //---------------
 
-Function.prototype.defer1 = function(ms) {
+Function.prototype.defer1 = function (ms) {
   let f = this;
-  return function(...args) {
+  return function (...args) {
     setTimeout(() => f.apply(this, args), ms);
   }
 };
 
 function f1(a, b) {
-  console.log( a + b );
+  console.log(a + b);
 }
 
 f1.defer1(1000)(1, 2);
@@ -192,7 +192,7 @@ console.log(typeof dictionary);
 function Rabbit1(name) {
   this.name = name;
 }
-Rabbit1.prototype.sayHi = function() {
+Rabbit1.prototype.sayHi = function () {
   console.log(this.name);
 };
 
@@ -200,5 +200,5 @@ let rabbit3 = new Rabbit1("Rabbit");
 
 rabbit3.sayHi(); //Rabbit
 Rabbit1.prototype.sayHi(); //undefined
-Object.getPrototypeOf(rabbit3).sayHi();//undefined
-rabbit3.__proto__.sayHi();//undefined
+Object.getPrototypeOf(rabbit3).sayHi(); //undefined
+rabbit3.__proto__.sayHi(); //undefined

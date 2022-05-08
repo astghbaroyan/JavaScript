@@ -86,8 +86,7 @@ console.log(arr.filter(inBetween(7, 14))); // 7
 console.log(arr.filter(inArray([10, 11, 12]))); // []
 //---------------
 
-let users = [
-  {
+let users = [{
     name: "John",
     age: 20,
     surname: "Johnson",
@@ -324,8 +323,12 @@ function fancForThisName() {
 }
 
 fancForThisName = fancForThisName
-  .bind({ name: "Alla" })
-  .bind({ name: "Petya" });
+  .bind({
+    name: "Alla"
+  })
+  .bind({
+    name: "Petya"
+  });
 
 fancForThisName(); //Alla
 //---------------

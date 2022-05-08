@@ -66,7 +66,7 @@ console.log(err instanceof SyntaxError); // true
 //      }
 //     else if (D < 0) {
 //       throw new Error("the number is negative");
-   
+
 //     } else if (D > 0) {
 //       console.log(((-b + Math.sqrt(D)) / 2) * a);
 //       console.log(((-b - Math.sqrt(D)) / 2) * a);

@@ -136,7 +136,7 @@ async function wait() {
 }
 
 function f() {
-  
+
   wait().then(result => console.log(result));
 }
 

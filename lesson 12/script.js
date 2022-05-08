@@ -102,12 +102,12 @@ console.log(rabbit2.hasOwnProperty('name')); // true
 //---------------
 
 function A() {}
+
 function B() {}
 
 A.prototype = B.prototype = {};
 
 let a = new A();
 
-console.log( a instanceof B ); // true
+console.log(a instanceof B); // true
 //----------------
-
