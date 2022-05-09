@@ -1,6 +1,7 @@
 /**Astghik Baroyan */
 'use strict';
 
+/**Rewrite to class */
 class Clock {
   constructor(template) {
     let timer;
@@ -40,6 +41,7 @@ class Clock {
 // clock.start();
 //--------------
 
+/** Error creating an instance*/
 class Animal {
 
   constructor(name) {
@@ -59,6 +61,7 @@ let rabbit = new Rabbit('White Rabbit');
 console.log(rabbit.name);
 //---------------
 
+/** Extended clock*/
 class ExtendedClock extends Clock {
   constructor(template) {
     super(template);
@@ -77,6 +80,7 @@ class ExtendedClock extends Clock {
 // clock.start();
 //----------------
 
+/**Class extends Object? */
 class Rabbit1 {
   constructor(name) {
     this.name = name;
@@ -101,6 +105,7 @@ let rabbit2 = new Rabbit2('Robby');
 console.log(rabbit2.hasOwnProperty('name')); // true
 //---------------
 
+/**Strange instanceof */
 function A() {}
 
 function B() {}

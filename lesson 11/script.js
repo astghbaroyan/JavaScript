@@ -1,6 +1,7 @@
 /**Astghik Baroyan */
 "use strict";
 
+/**Working with prototype */
 let animal = {
   jumps: null,
 };
@@ -20,6 +21,7 @@ delete animal.jumps;
 console.log(rabbit.jumps); // undefined
 //--------------
 
+/**Searching algorithm */
 let head = {
   glasses: 1,
 };
@@ -50,6 +52,7 @@ console.log(bed.glasses);
 console.log(head.glasses);
 //-------------
 
+/**Where does it write? */
 let animal1 = {
   eat() {
     this.full = true;
@@ -65,6 +68,7 @@ console.log(rabbit1.eat); // undefined
 //rabbit
 //-------------
 
+/**Why are both hamsters full? */
 let hamster = {
   stomach: [],
 
@@ -80,15 +84,16 @@ let lazy = {
   __proto__: hamster,
 };
 
-speedy.eat("apple");
+speedy.eat('apple');
 console.log(speedy.stomach); // apple
 
 console.log(lazy.stomach); // []
 //-------------
 
+/**Changing "prototype" */
 function Rabbit() {}
 Rabbit.prototype = {
-  eats: true
+  eats: true,
 };
 
 let rabbit2 = new Rabbit();
@@ -104,11 +109,12 @@ let rabbit2 = new Rabbit();
 console.log(rabbit2.eats); // true
 //--------------
 
+/** Create an object with the same constructor*/
 function ElectroCar() {}
 ElectroCar.prototype = {
   battery: true,
   electricMotor: true,
-  fuel: false
+  fuel: false,
 };
 
 let teslaModelS = new ElectroCar();
@@ -123,22 +129,24 @@ let teslaModelY = teslaModel3.constructor();
 console.log('teslaModelY', teslaModelY); // false
 //--------------
 
+/**Add method "f.defer(ms)" to functions */
 function f() {
-  console.log("Hello!");
-};
+  console.log('Hello!');
+}
 
 Function.prototype.defer = function (ms) {
   setTimeout(f, ms);
-}
+};
 
 f.defer(1000);
 //---------------
 
+/**Add the decorating "defer()" to functions */
 Function.prototype.defer1 = function (ms) {
   let f = this;
   return function (...args) {
     setTimeout(() => f.apply(this, args), ms);
-  }
+  };
 };
 
 function f1(a, b) {
@@ -146,9 +154,10 @@ function f1(a, b) {
 }
 
 f1.defer1(1000)(1, 2);
-f1.defer1(2000)(-5, 56)
+f1.defer1(2000)(-5, 56);
 //----------------
 
+/** Add toString to the dictionary*/
 let dictionary = Object.create(null);
 
 dictionary.apple = 'Apple';
@@ -158,17 +167,16 @@ for (let key in dictionary) {
   console.log(key);
 }
 
-dictionary = Object.keys(dictionary).join(",");
+dictionary = Object.keys(dictionary).join(',');
 
 console.log(dictionary);
 console.log(typeof dictionary);
 // console.log(typeof dictionary.__proto__);
 // console.log(typeof dictionary.apple);
 
-
 // let dictionary = Object.create(null, {
-//   toString: { 
-//     value() { 
+//   toString: {
+//     value() {
 //       return Object.keys(this).join(',');
 //     }
 //   }
@@ -177,11 +185,9 @@ console.log(typeof dictionary);
 // dictionary.apple = 'Apple';
 // dictionary.__proto__ = 'test';
 
-
 // for(let key in dictionary) {
 //   console.log(key); // 'apple',  '__proto__'
 // }
-
 
 // console.log(dictionary); // 'apple,__proto__'
 
@@ -189,6 +195,7 @@ console.log(typeof dictionary);
 // console.log(typeof dictionary.apple);
 //--------------
 
+/**The difference between calls */
 function Rabbit1(name) {
   this.name = name;
 }
@@ -196,7 +203,7 @@ Rabbit1.prototype.sayHi = function () {
   console.log(this.name);
 };
 
-let rabbit3 = new Rabbit1("Rabbit");
+let rabbit3 = new Rabbit1('Rabbit');
 
 rabbit3.sayHi(); //Rabbit
 Rabbit1.prototype.sayHi(); //undefined

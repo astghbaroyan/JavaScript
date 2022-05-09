@@ -1,14 +1,15 @@
 /**Astghik Baroyan */
 "use strict";
 
+/**Finally or just the code? */
 function f() {
   try {
-    console.log("start");
-    return "result";
+    console.log('start');
+    return 'result';
   } catch (e) {
     /// code...
   } finally {
-    console.log("cleaning!");
+    console.log('cleaning!');
   }
 }
 
@@ -16,7 +17,7 @@ f(); // cleaning!
 
 function f1() {
   try {
-    console.log("start");
+    console.log('start');
     //throw new Error('my error');
   } catch (e) {
     // ...
@@ -24,29 +25,30 @@ function f1() {
       throw e;
     }
   } finally {
-    console.log("cleaning!");
+    console.log('cleaning!');
   }
 }
 
 f1(); // cleaning!
 //----------------
 
+/**Inherit from SyntaxError */
 class SyntaxError {
   constructor(message) {
     this.message = message;
-    this.name = "Syntax Error";
-    this.stack = "Stack";
+    this.name = 'Syntax Error';
+    this.stack = 'Stack';
   }
 }
 
 class FormatError extends SyntaxError {
   constructor(message) {
     super(message);
-    this.name = "Format Error";
+    this.name = 'Format Error';
   }
 }
 
-let err = new FormatError("Formatting error");
+let err = new FormatError('Formatting error');
 
 console.log(err.message); // formatting error
 console.log(err.name); // FormatError
