@@ -233,7 +233,7 @@ Why does that happen?
 const table = document.getElementById('secondTable')
 console.log(table); // the table, as it should be
 
-setTimeout(() => table.remove(),2000);
+setTimeout(() => table.remove(), 2000);
 //-----------------
 
 /**Create a list
@@ -246,7 +246,7 @@ Create the <li> with it and add it to <ul>.
 Continue until the user cancels the input (by pressing Esc or via an empty entry).
 All elements should be created dynamically.
 
-If a user types HTML-tags, they should be treated like a text. */ 
+If a user types HTML-tags, they should be treated like a text. */
 // let ul = document.createElement('ul');
 // document.body.append(ul);
 
@@ -448,3 +448,69 @@ function createTreeText(obj) { // standalone recursive function
 /**Show descendants in a tree
 There’s a tree organized as nested ul/li.
 Write the code that adds to each <li> the number of its descendants. Skip leaves (nodes without children).*/
+// for (let li of document.querySelectorAll('li')) {
+
+//   const count1 = li.getElementsByTagName('li').length;
+//   li.firstChild.data += ' [' + сount1 + ']';
+//   //console.log(title + ': ' + count);
+// }
+let lis = document.getElementsByTagName('li');
+
+for (let li of lis) {
+  let count = li.getElementsByTagName('li').length;
+  if (!count) continue;
+  li.firstChild.data += ' [' + count + ']';
+}
+//---------------
+
+/**Create a calendar
+Write a function createCalendar(elem, year, month).
+The call should create a calendar for the given year/month and put it inside elem.
+The calendar should be a table, where a week is <tr>, and a day is <td>. The table top should be <th> with weekday names: the first day should be Monday, and so on till Sunday.
+For instance, createCalendar(cal, 2012, 9) should generate in element cal the following calendar:
+ */
+
+// function createCalendar(elem, year, month) {
+//   ///????
+// }
+
+// createCalendar(calendar, 2012, 9);
+//------------------
+
+/**Colored clock with setInterval */
+let timerId;
+
+function update() {
+  let clock = document.getElementById('clock');
+  let date = new Date();
+
+  let hours = date.getHours();
+  clock.children[0].innerHTML = hours;
+
+  let minutes = date.getMinutes();
+  clock.children[1].innerHTML = minutes;
+
+  let seconds = date.getSeconds();
+  clock.children[2].innerHTML = seconds;
+}
+
+function clockStart() {
+  timerId = setInterval(update, 1000);
+  update(); 
+}
+
+function clockStop() {
+  clearInterval(timerId);
+}
+//-----------------
+
+/**Insert the HTML in the list */
+
+let one = document.getElementById('one');
+let two = document.createElement('li');
+two.innerHTML = '2';
+one.append(two); 
+let three = document.createElement('li');
+three.innerHTML = '3';
+two.append(three); 
+

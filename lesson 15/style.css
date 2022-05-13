@@ -2,3 +2,15 @@ table,th, td {
     border-style: groove;
     border-color: #96D4D4;
   }
+
+  .hour {
+    color: rgb(255, 0, 0)
+  }
+
+  .min {
+    color: rgb(48, 12, 253)
+  }
+
+  .sec {
+    color: rgb(255, 166, 0)
+  }
